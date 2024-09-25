@@ -13,4 +13,5 @@ fun main(){
 
     println(name.toLowerCase())
     println(name.toUpperCase())
+    println(name + " Do you like it?")
 }
