@@ -8,6 +8,9 @@ fun main(){
     println(options[computerChoice])
     println(computerChoice)
 
+    println("0. paper\n1. Rock\n2. Scissors")
 //    print()
-//    val myChoice =
+//    val myChoice = readln().toInt()
+//    println()
+
 }
