@@ -36,6 +36,9 @@ fun main(){
     gives an error becuase of change of data type from Int to Long which is not allowed
 
      */
-
+    var myOtherBiggestNumber: Long = 0
+    println(myOtherBiggestNumber)
+    myOtherBiggestNumber = 25645653567
+    println(myOtherBiggestNumber)
 
 }
