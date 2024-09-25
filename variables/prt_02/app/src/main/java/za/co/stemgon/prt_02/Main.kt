@@ -10,4 +10,14 @@ fun main(){
     println("I serve $myGod")
 //    val myGod can not be changed
 
+    // Quiz
+    val kotlin = "🙂"
+    val constantNumber = 102
+    var mutableString = "Hi there"
+    println(kotlin)
+    println(constantNumber)
+    println(mutableString)
+    mutableString = "I changed"
+    println(mutableString)
+
 }
