@@ -7,4 +7,10 @@ fun main(){
     println(isKotlinFun)   // Outputs true
     println(isFishTasty)   // Outputs false
     println(isNotFishTasty)   // Outputs false
+
+
+//    val isKotlinFun = true
+//    val isFishTasty = false
+//    println(isKotlinFun)   // Outputs true
+//    println(isFishTasty)   // Outputs false
 }
