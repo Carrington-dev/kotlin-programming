@@ -7,6 +7,6 @@ fun main(){
     println(circleRatio)
     circleRatio = 3.1415926535F; // error
     println(circleRatio)
-    circleRatio = 3.1415926535897932; // error
+    circleRatio = 3.1415926535897932f; // error
     println(circleRatio)
 }
