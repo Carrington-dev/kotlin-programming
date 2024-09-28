@@ -1,6 +1,7 @@
 package za.co.stemgon.caroom
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import za.co.stemgon.caroom.ui.theme.CaroomTheme
 
@@ -75,25 +77,27 @@ fun UnitConvertor(){
         Text(text = "Unit Convertor")
         OutlinedTextField(value = "", onValueChange = {})
         Row {
-            Column {
 
-                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+            val context = LocalContext.current
+            Button(onClick = { /*TODO*/
 
-                }
+                Toast.makeText(context, "Hi there I was clicked", Toast.LENGTH_SHORT).show()
+            }) {
+                Text(text = "Click Me!")
             }
-            
-            Column {
-
-                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
-
-                }
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "Click Me!")
             }
         }
 
         Text(text = "5 m: 500cm")
 
-        Button(onClick = { /*TODO*/ }) {
-            
+
+        Button(onClick = { /*TODO*/
+
+
+        }) {
+            Text(text = "Click Me!")
         }
     }
 }
