@@ -7,4 +7,6 @@ fun main() {
         println(numbers[i])
     }
 
+//    numbers.set
+
 }
