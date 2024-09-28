@@ -17,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -68,7 +69,7 @@ fun GreetingPreview() {
 
 
 @Composable
-fun CurrencyConvertor(){
+fun CurrencyConvertor() {
     Column {
         Greeting(name = "Carrington")
         Greeting(name = "Carrington")
@@ -93,34 +94,89 @@ fun CurrencyConvertor(){
 
 
 @Composable
-fun UnitConvertor(){
+fun UnitConvertor() {
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Unit Convertor")
-        Spacer(modifier  = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(value = "", onValueChange = {})
-        Spacer(modifier  = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         Row {
 
             val context = LocalContext.current
-            Box{
-                    Button(onClick = { /*TODO*/ }) {
-                        Text(text = "Select ")
-                        Icon(Icons.Default.ArrowDropDown, contentDescription = "")
-                    }
+            Box {
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select ")
+                    Icon(Icons.Default.ArrowDropDown, contentDescription = "")
+                }
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+                    DropdownMenuItem(
+                        text = { /*TODO*/
+                            Text(text = "Centimeters")
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { /*TODO*/
+                            Text(text = "Kilometers")
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { /*TODO*/
+                            Text(text = "Meters")
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { /*TODO*/
+                            Text(text = "Millimeters")
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+
+                }
             }
             Spacer(modifier = Modifier.width(12.dp))
-            Box{
-                    Button(onClick = { /*TODO*/ }) {
-                        Text(text = "Select ")
-                        Icon(Icons.Default.ArrowDropDown, contentDescription = "")
-                    }
+            Box {
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select ")
+                    Icon(Icons.Default.ArrowDropDown, contentDescription = "")
+                }
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+                    DropdownMenuItem(
+                        text = { /*TODO*/
+                            Text(text = "Centimeters")
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { /*TODO*/
+                            Text(text = "Kilometers")
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { /*TODO*/
+                            Text(text = "Meters")
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        text = { /*TODO*/
+                            Text(text = "Millimeters")
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+
+                }
+
             }
         }
-        Spacer(modifier  = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         Text(text = "Result: 500cm")
 
