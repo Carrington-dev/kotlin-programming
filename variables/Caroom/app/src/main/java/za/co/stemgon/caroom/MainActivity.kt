@@ -90,7 +90,7 @@ fun UnitConvertor(){
             }
         }
 
-        Text(text = "5 m: 500cm")
+        Text(text = "Result: 500cm")
 
 
 //        Button(onClick = { /*TODO*/
