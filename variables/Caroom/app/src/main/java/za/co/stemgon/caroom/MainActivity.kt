@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
@@ -107,7 +108,14 @@ fun UnitConvertor(){
             val context = LocalContext.current
             Box{
                     Button(onClick = { /*TODO*/ }) {
-                        Text(text = "Select Options")
+                        Text(text = "Select ")
+                        Icon(Icons.Default.ArrowDropDown, contentDescription = "")
+                    }
+            }
+            Spacer(modifier = Modifier.width(12.dp))
+            Box{
+                    Button(onClick = { /*TODO*/ }) {
+                        Text(text = "Select ")
                         Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                     }
             }
