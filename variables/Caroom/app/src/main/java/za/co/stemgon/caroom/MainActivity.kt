@@ -110,7 +110,7 @@ fun UnitConvertor() {
         mutableStateOf(false)
     }
     var computedValue by remember {
-        mutableStateOf(0)
+        mutableStateOf(0.00)
     }
     var multiplier by remember {
         mutableStateOf(0.01)
@@ -122,6 +122,12 @@ fun UnitConvertor() {
 
     var inputUnit by remember {
         mutableStateOf("cm")
+    }
+
+    fun convertUnits(){
+        val inputValueDouble = inputValue.toDoubleOrNull() ?: 0.0
+        var outputValueDouble = inputValueDouble * multiplier
+        computedValue =  outputValueDouble
     }
 
 
@@ -156,7 +162,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             iXpanded = false
                             inputUnit = "cm"
-
+                            convertUnits()
                         }
                     )
                     DropdownMenuItem(
@@ -166,6 +172,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             iXpanded = false
                             inputUnit = "km"
+                            convertUnits()
                         }
                     )
                     DropdownMenuItem(
@@ -175,6 +182,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             iXpanded = false
                             inputUnit = "m"
+                            convertUnits()
                         }
                     )
                     DropdownMenuItem(
@@ -184,6 +192,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             iXpanded = false
                             inputUnit = "mm"
+                            convertUnits()
                         }
                     )
 
@@ -205,6 +214,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             oXpanded = false
                             outputUnit = "cm"
+                            convertUnits()
                         }
                     )
                     DropdownMenuItem(
@@ -214,6 +224,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             oXpanded = false
                             outputUnit = "km"
+                            convertUnits()
                         }
                     )
                     DropdownMenuItem(
@@ -223,6 +234,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             oXpanded = false
                             outputUnit = "m"
+                            convertUnits()
                         }
                     )
                     DropdownMenuItem(
@@ -232,6 +244,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             oXpanded = false
                             outputUnit = "mm"
+                            convertUnits()
                         }
                     )
 
