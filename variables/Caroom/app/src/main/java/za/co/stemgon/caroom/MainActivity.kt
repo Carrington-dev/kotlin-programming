@@ -101,7 +101,7 @@ fun CurrencyConvertor() {
 @Composable
 fun UnitConvertor() {
     var inputValue by remember {
-        mutableStateOf("0")
+        mutableStateOf("1")
     }
     var iXpanded by remember {
         mutableStateOf(false)
