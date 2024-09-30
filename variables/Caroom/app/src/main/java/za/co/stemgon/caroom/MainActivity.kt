@@ -136,9 +136,9 @@ fun UnitConvertor() {
         }else if(outputUnit == "cm" && inputUnit == "m"){
             multiplier = 100.00
         }else if(outputUnit == "km" && inputUnit == "m"){
-            multiplier = 1000.00
-        }else if(outputUnit == "m" && inputUnit == "km"){
             multiplier = 0.001
+        }else if(outputUnit == "m" && inputUnit == "km"){
+            multiplier = 1000.00
         }else if((outputUnit == "mm") && (inputUnit == "cm")){
             multiplier = 10.0
         }else if(outputUnit == "cm" && inputUnit == "mm"){
@@ -147,6 +147,16 @@ fun UnitConvertor() {
             multiplier = 1000.00
         }else if(outputUnit == "m" && inputUnit == "mm"){
             multiplier = 0.001
+        }else if(outputUnit == "km" && inputUnit == "cm"){
+            multiplier = 0.00001
+        }else if(outputUnit == "cm" && inputUnit == "km"){
+            multiplier = 100000.00
+        }else if(outputUnit == "km" && inputUnit == "mm"){
+            multiplier = 0.000001
+        }else if(outputUnit == "mm" && inputUnit == "km"){
+            multiplier = 1000000.00
+        }else{
+            multiplier = 1.0
         }
 
         return multiplier
