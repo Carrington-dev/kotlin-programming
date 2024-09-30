@@ -24,6 +24,11 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -95,6 +100,10 @@ fun CurrencyConvertor() {
 
 @Composable
 fun UnitConvertor() {
+    var inputValue by remember {
+        mutableStateOf("")
+    }
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
@@ -102,7 +111,9 @@ fun UnitConvertor() {
     ) {
         Text(text = "Unit Convertor")
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "", onValueChange = {})
+        OutlinedTextField(value = inputValue, onValueChange = {
+            inputValue = it
+        })
         Spacer(modifier = Modifier.height(16.dp))
         Row {
 
