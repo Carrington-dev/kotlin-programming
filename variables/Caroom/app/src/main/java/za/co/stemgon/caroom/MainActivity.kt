@@ -195,7 +195,7 @@ fun UnitConvertor() {
                     Text(text = "Select ")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(expanded = oXpanded, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
                         text = { /*TODO*/
                             Text(text = "Centimeters")
