@@ -130,6 +130,28 @@ fun UnitConvertor() {
         computedValue =  outputValueDouble
     }
 
+    fun calculateMultiplier(): Double{
+        if(outputUnit == "m" && inputUnit == "cm"){
+            multiplier = 0.01
+        }else if(outputUnit == "cm" && inputUnit == "m"){
+            multiplier = 100.00
+        }else if(outputUnit == "km" && inputUnit == "m"){
+            multiplier = 1000.00
+        }else if(outputUnit == "m" && inputUnit == "km"){
+            multiplier = 0.001
+        }else if((outputUnit == "mm") && (inputUnit == "cm")){
+            multiplier = 10.0
+        }else if(outputUnit == "cm" && inputUnit == "mm"){
+            multiplier = 0.1
+        }else if(outputUnit == "mm" && inputUnit == "m"){
+            multiplier = 1000.00
+        }else if(outputUnit == "m" && inputUnit == "mm"){
+            multiplier = 0.001
+        }
+
+        return multiplier
+    }
+
 
 
     Column(
@@ -162,6 +184,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             iXpanded = false
                             inputUnit = "cm"
+                            calculateMultiplier()
                             convertUnits()
                         }
                     )
@@ -172,6 +195,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             iXpanded = false
                             inputUnit = "km"
+                            calculateMultiplier()
                             convertUnits()
                         }
                     )
@@ -182,6 +206,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             iXpanded = false
                             inputUnit = "m"
+                            calculateMultiplier()
                             convertUnits()
                         }
                     )
@@ -192,6 +217,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             iXpanded = false
                             inputUnit = "mm"
+                            calculateMultiplier()
                             convertUnits()
                         }
                     )
@@ -214,6 +240,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             oXpanded = false
                             outputUnit = "cm"
+                            multiplier = calculateMultiplier()
                             convertUnits()
                         }
                     )
@@ -224,6 +251,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             oXpanded = false
                             outputUnit = "km"
+                            calculateMultiplier()
                             convertUnits()
                         }
                     )
@@ -234,6 +262,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             oXpanded = false
                             outputUnit = "m"
+                            calculateMultiplier()
                             convertUnits()
                         }
                     )
@@ -244,6 +273,7 @@ fun UnitConvertor() {
                         onClick = { /*TODO*/
                             oXpanded = false
                             outputUnit = "mm"
+                            calculateMultiplier()
                             convertUnits()
                         }
                     )
