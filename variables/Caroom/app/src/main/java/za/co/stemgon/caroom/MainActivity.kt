@@ -101,8 +101,30 @@ fun CurrencyConvertor() {
 @Composable
 fun UnitConvertor() {
     var inputValue by remember {
-        mutableStateOf("")
+        mutableStateOf("0")
     }
+    var iXpanded by remember {
+        mutableStateOf(false)
+    }
+    var oXpanded by remember {
+        mutableStateOf(false)
+    }
+    var computedValue by remember {
+        mutableStateOf(0)
+    }
+    var multiplier by remember {
+        mutableStateOf(0.01)
+    }
+
+    var outputUnit by remember {
+        mutableStateOf("m")
+    }
+
+    var inputUnit by remember {
+        mutableStateOf("cm")
+    }
+
+
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -119,34 +141,50 @@ fun UnitConvertor() {
 
             val context = LocalContext.current
             Box {
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = { /*TODO*/
+                    // Input
+                    iXpanded = true
+                }) {
                     Text(text = "Select ")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(expanded = iXpanded, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
                         text = { /*TODO*/
                             Text(text = "Centimeters")
                         },
-                        onClick = { /*TODO*/ }
+                        onClick = { /*TODO*/
+                            iXpanded = false
+                            inputUnit = "cm"
+
+                        }
                     )
                     DropdownMenuItem(
                         text = { /*TODO*/
                             Text(text = "Kilometers")
                         },
-                        onClick = { /*TODO*/ }
+                        onClick = { /*TODO*/
+                            iXpanded = false
+                            inputUnit = "km"
+                        }
                     )
                     DropdownMenuItem(
                         text = { /*TODO*/
                             Text(text = "Meters")
                         },
-                        onClick = { /*TODO*/ }
+                        onClick = { /*TODO*/
+                            iXpanded = false
+                            inputUnit = "m"
+                        }
                     )
                     DropdownMenuItem(
                         text = { /*TODO*/
                             Text(text = "Millimeters")
                         },
-                        onClick = { /*TODO*/ }
+                        onClick = { /*TODO*/
+                            iXpanded = false
+                            inputUnit = "mm"
+                        }
                     )
 
                 }
@@ -162,25 +200,37 @@ fun UnitConvertor() {
                         text = { /*TODO*/
                             Text(text = "Centimeters")
                         },
-                        onClick = { /*TODO*/ }
+                        onClick = { /*TODO*/
+                            oXpanded = false
+                            outputUnit = "cm"
+                        }
                     )
                     DropdownMenuItem(
                         text = { /*TODO*/
                             Text(text = "Kilometers")
                         },
-                        onClick = { /*TODO*/ }
+                        onClick = { /*TODO*/
+                            oXpanded = false
+                            outputUnit = "km"
+                        }
                     )
                     DropdownMenuItem(
                         text = { /*TODO*/
                             Text(text = "Meters")
                         },
-                        onClick = { /*TODO*/ }
+                        onClick = { /*TODO*/
+                            oXpanded = false
+                            outputUnit = "m"
+                        }
                     )
                     DropdownMenuItem(
                         text = { /*TODO*/
                             Text(text = "Millimeters")
                         },
-                        onClick = { /*TODO*/ }
+                        onClick = { /*TODO*/
+                            oXpanded = false
+                            outputUnit = "mm"
+                        }
                     )
 
                 }
@@ -189,7 +239,7 @@ fun UnitConvertor() {
         }
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text(text = "Result: 500cm")
+        Text(text = "Result: $inputValue $inputUnit equates to $computedValue $outputUnit")
 
 
 //        Button(onClick = { /*TODO*/
