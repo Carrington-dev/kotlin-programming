@@ -191,7 +191,9 @@ fun UnitConvertor() {
             }
             Spacer(modifier = Modifier.width(12.dp))
             Box {
-                Button(onClick = { /*TODO*/ }) {
+                Button(onClick = { /*TODO*/
+                    oXpanded = true
+                }) {
                     Text(text = "Select ")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                 }
