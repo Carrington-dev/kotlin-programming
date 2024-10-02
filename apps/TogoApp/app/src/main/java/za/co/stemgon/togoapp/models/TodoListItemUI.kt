@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
@@ -31,7 +32,7 @@ fun TodoListItem(
     Row( modifier = Modifier
         .padding(8.dp)
         .fillMaxWidth()
-        .border(BorderStroke(2.dp, Color.Cyan)),
+        .border(BorderStroke(2.dp, Color.Cyan), shape = RoundedCornerShape(10.dp)),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ){
@@ -40,7 +41,7 @@ fun TodoListItem(
         Text("Qty: ${ item.numberOfItems }")
 
         Spacer(modifier = Modifier.width(8.dp))
-        IconButton(onClick = { /*TODO*/ }) {
+        IconButton(onClick = {  }) {
             Icon(imageVector = Icons.Default.Delete, contentDescription = "${ item.name}")
         }
 
