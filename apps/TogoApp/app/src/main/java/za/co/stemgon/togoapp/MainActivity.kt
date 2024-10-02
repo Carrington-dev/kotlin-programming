@@ -1,6 +1,7 @@
 package za.co.stemgon.togoapp
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -26,8 +27,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import za.co.stemgon.togoapp.models.Todo
+import za.co.stemgon.togoapp.models.TodoListItem
 import za.co.stemgon.togoapp.ui.theme.TogoAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,14 +62,20 @@ fun MainAppUI(){
     var numberOfTodoItems by remember {
         mutableStateOf("1")
     }
-    var todoItems = mutableListOf<String>()
+    var todoItems = mutableListOf<Todo>(
+        Todo(1, "Cooking", 2),
+        Todo(2, "Baking", 52),
+        Todo(3, "Bathing", 5),
+    )
     Button(onClick = { isDialogOpen = true }) {
         Text(text = "Add Todo")
 
     }
     LazyColumn(content = {
         items(todoItems){
-
+            TodoListItem(item = it, onEditClick = { /*TODO*/ }) {
+                
+            }
         }
     })
     Spacer(modifier = Modifier.height(8.dp))
@@ -75,9 +85,11 @@ fun MainAppUI(){
                     isDialogOpen = false
             },
             confirmButton = {
-
+                var context = LocalContext.current
                 Button(onClick = { /*TODO*/
                     isDialogOpen = false
+                    todoItems.add(Todo(todoItems.size+1, nameOfTodoItem, numberOfTodoItems.toIntOrNull() ?: 1))
+                    Toast.makeText(context, "Added a new items, ow have ${todoItems.size}", Toast.LENGTH_SHORT).show()
                 }) {
                     Text(text = "Add")
                 }
