@@ -41,12 +41,12 @@ fun TodoListItem(
         Text("Qty: ${ item.numberOfItems }")
 
         Spacer(modifier = Modifier.width(8.dp))
-        IconButton(onClick = {  }) {
+        IconButton(onClick = onDeleteClick ) {
             Icon(imageVector = Icons.Default.Delete, contentDescription = "${ item.name}")
         }
 
         Spacer(modifier = Modifier.width(8.dp))
-        IconButton(onClick = { /*TODO*/ }) {
+        IconButton(onClick = onEditClick ) {
             Icon(imageVector = Icons.Default.Edit, contentDescription = "${ item.name}")
         }
 

@@ -73,9 +73,18 @@ fun MainAppUI(){
     }
     LazyColumn(content = {
         items(todoItems){
-            TodoListItem(item = it, onEditClick = { /*TODO*/ }) {
-                
-            }
+            val context = LocalContext.current
+            TodoListItem(
+                item = it,
+                onEditClick = {
+
+                    Toast.makeText(context, "Edited item ${it.name}", Toast.LENGTH_SHORT ).show()
+                },
+                onDeleteClick = {
+                    Toast.makeText(context, "Deleted item ${it.name}", Toast.LENGTH_SHORT ).show()
+                }
+            )
+
         }
     })
     Spacer(modifier = Modifier.height(8.dp))
