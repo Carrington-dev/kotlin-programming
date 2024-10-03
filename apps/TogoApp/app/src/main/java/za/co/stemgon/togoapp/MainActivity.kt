@@ -62,11 +62,13 @@ fun MainAppUI(){
     var numberOfTodoItems by remember {
         mutableStateOf("1")
     }
-    var todoItems = mutableListOf<Todo>(
-        Todo(1, "Cooking", 2),
-        Todo(2, "Baking", 52),
-        Todo(3, "Bathing", 5),
-    )
+    var todoItems by remember {
+        mutableStateOf(listOf<Todo>(
+            Todo(1, "Cooking", 2),
+            Todo(2, "Baking", 52),
+            Todo(3, "Bathing", 5),
+        ))
+    }
     Button(onClick = { isDialogOpen = true }) {
         Text(text = "Add Todo")
 
@@ -97,7 +99,7 @@ fun MainAppUI(){
                 var context = LocalContext.current
                 Button(onClick = { /*TODO*/
                     isDialogOpen = false
-                    todoItems.add(Todo(todoItems.size+1, nameOfTodoItem, numberOfTodoItems.toIntOrNull() ?: 1))
+                    //todoItems = todoItems(Todo(todoItems.size+1, nameOfTodoItem, numberOfTodoItems.toIntOrNull() ?: 1))
                     Toast.makeText(context, "Added a new items, ow have ${todoItems.size}", Toast.LENGTH_SHORT).show()
                 }) {
                     Text(text = "Add")
