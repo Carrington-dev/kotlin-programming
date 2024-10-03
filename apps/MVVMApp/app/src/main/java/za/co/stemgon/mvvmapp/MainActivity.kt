@@ -48,9 +48,14 @@ fun OldMethodUI(){
     var counter by remember {
         mutableIntStateOf(0)
     }
-    Column( horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+    Column(
+        modifier = Modifier.fillMaxSize().padding(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
         Text(text = "Counter: $counter")
         Row(
+            modifier = Modifier.fillMaxSize().padding(32.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
             ) {
@@ -58,7 +63,7 @@ fun OldMethodUI(){
                 Text(text = "Decrement")
             }
             Spacer(modifier = Modifier.width(8.dp))
-            Button(onClick = { counter++git }) {
+            Button(onClick = { counter++ }) {
                 Text(text = "Increment")
             }
         }
