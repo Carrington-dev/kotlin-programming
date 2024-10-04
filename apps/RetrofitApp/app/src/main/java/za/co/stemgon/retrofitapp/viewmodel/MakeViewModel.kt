@@ -15,7 +15,7 @@ class MakeViewModel: ViewModel() {
     }
 
     private  val _makeState = mutableStateOf(MakeState())
-    private val makeState: State<MakeState> = _makeState
+    public val makeState: State<MakeState> = _makeState
 
     private fun fetchMakes(){
         viewModelScope.launch {
