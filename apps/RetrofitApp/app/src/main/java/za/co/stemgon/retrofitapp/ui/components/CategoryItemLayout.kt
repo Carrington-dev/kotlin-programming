@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import za.co.stemgon.retrofitapp.viewmodel.MakeViewModel
 
 @Composable
-fun CategoryItemLayout(modifier: Modifier = Modifier){
+fun MakeItemLayout(modifier: Modifier = Modifier){
     val makeViewModel: MakeViewModel = MakeViewModel()
     val viewState = makeViewModel.makeState
 
@@ -26,7 +26,7 @@ fun CategoryItemLayout(modifier: Modifier = Modifier){
                 Text(text = "An error has occurred!")
             }
             else -> {
-                
+
             }
         }
     }
