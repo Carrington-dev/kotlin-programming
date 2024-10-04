@@ -63,8 +63,10 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     // If you're using Kotlin coroutines, add the coroutine adapter
-    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0") // If you're using RxJava
-    implementation("com.squareup.retrofit2:adapter-coroutines:2.9.0") // If you're using Coroutines
+    //implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0") // If you're using RxJava
+    // implementation("com.squareup.retrofit2:adapter-coroutines:2.9.0") // If you're using Coroutines
+    implementation("io.coil-kt:coil-compose:2.7.0")
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
