@@ -9,7 +9,7 @@ fun main(){
     school.introduce()
     school.educate()
 
-    var tertiary: School = Tertiary()
+    var tertiary: Tertiary = Tertiary()
     tertiary.introduce()
     tertiary.educate()
 
