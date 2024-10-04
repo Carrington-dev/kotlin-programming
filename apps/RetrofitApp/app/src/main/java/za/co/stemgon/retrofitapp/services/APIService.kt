@@ -1,5 +1,10 @@
 package za.co.stemgon.retrofitapp.services
 
-interface APIService {
+import retrofit2.http.GET
 
+interface APIService {
+    @GET("makes/")
+    suspend fun getMakes(){
+
+    }
 }
