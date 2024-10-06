@@ -30,7 +30,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    var makeViewModel = ViewModelProvider(this).get(MakeViewModel::class.java)
 
                     APIAppUI()
                 }

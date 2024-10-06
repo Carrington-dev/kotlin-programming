@@ -1,5 +1,6 @@
 package za.co.stemgon.retrofitapp.models
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,13 +16,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
 import za.co.stemgon.retrofitapp.viewmodel.MakeViewModel
 
 @Composable
 fun MakeItemLayout(modifier: Modifier = Modifier){
     // val context =  LocalContext.current
-    val makeViewModel: MakeViewModel = MakeViewModel()
+    // val makeViewModel: MakeViewModel = MakeViewModel()
+    val makeViewModel: MakeViewModel = viewModel()
     val viewState by makeViewModel.makeState
 
     println("isLoading: ${viewState.isLoading} ")
@@ -29,13 +33,18 @@ fun MakeItemLayout(modifier: Modifier = Modifier){
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
+        // In Fragment or Activity
+
+
         when{
             viewState.isLoading -> {
                 CircularProgressIndicator(modifier.align(Alignment.Center))
             }
 
             viewState.error != null -> {
-                Text(text = "An error has occurred!")
+                // Text(text = "An error has occurred!")
+                Toast.makeText(LocalContext.current,
+                    "An error has occurred!", Toast.LENGTH_SHORT).show()
             }
 
             else -> {

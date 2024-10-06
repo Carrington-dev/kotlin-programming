@@ -1,5 +1,6 @@
 package za.co.stemgon.retrofitapp.viewmodel
 
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -15,7 +16,8 @@ class MakeViewModel: ViewModel() {
     }
 
     private  val _makeState = mutableStateOf(MakeState())
-    val makeState: State<MakeState> = _makeState
+    val makeState: MutableState<MakeState> = _makeState
+    // val makeState: State<MakeState> = _makeState
 
     private fun fetchMakes(){
         viewModelScope.launch {
