@@ -70,6 +70,8 @@ dependencies {
     //implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0") // If you're using RxJava
     // implementation("com.squareup.retrofit2:adapter-coroutines:2.9.0") // If you're using Coroutines
     implementation("io.coil-kt:coil-compose:2.7.0")
+    // Coil SVG support
+    implementation("io.coil-kt:coil-svg:2.7.0")
 
 
     testImplementation("junit:junit:4.13.2")

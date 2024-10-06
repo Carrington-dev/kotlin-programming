@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -16,9 +18,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
+import coil.size.Size
 import za.co.stemgon.retrofitapp.viewmodel.MakeViewModel
 
 @Composable
@@ -67,18 +75,60 @@ fun MakeScreen(makes: List<Make> ){
 
 @Composable
 fun MakeItem(make: Make){
+    val painter: Painter = rememberAsyncImagePainter(
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(make.image)
+            .crossfade(true)
+            .size(Size.ORIGINAL)
+            .build()
+    )
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painter = rememberAsyncImagePainter(model = make.image),
-            contentDescription = make.name,
-            modifier = Modifier
-                .fillMaxSize()
-                .aspectRatio(1f))
+//        Image(
+//            painter = painter,
+//            contentDescription = make.name,
+//            modifier = Modifier.size(200.dp),
+//
+//        )
 
-        Text(text = "${make.name}", color = Color.Black)
+        LoadSvgImage("https://api.vroomhive.co.za/media/vehicle/car.jpg")
+//        Image(
+//            painter = rememberAsyncImagePainter(model = make.image),
+//            contentDescription = make.name,
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .aspectRatio(1f))
+
+        Text(
+            text = "${make.name}",
+            color = Color.Black,
+            style = TextStyle(fontWeight = FontWeight.Bold),
+            modifier = Modifier.padding(top=4.dp)
+        )
+        //Text(text = "${make.name}", color = Color.Black)
+        Text(text = "${make.vehicle_count}", color = Color.Black)
     }
 
+}
+
+
+@Composable
+fun LoadSvgImage(url: String) {
+    val painter: Painter = rememberAsyncImagePainter(
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(url)
+            .crossfade(true)
+            .size(Size.ORIGINAL)
+            .build()
+    )
+
+    Box(modifier = Modifier.size(200.dp)) {
+        Image(
+            painter = painter,
+            contentDescription = null,
+            modifier = Modifier.size(200.dp)
+        )
+    }
 }
