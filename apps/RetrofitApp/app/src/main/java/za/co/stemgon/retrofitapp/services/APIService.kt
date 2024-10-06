@@ -6,13 +6,13 @@ import retrofit2.create
 import retrofit2.http.GET
 import za.co.stemgon.retrofitapp.models.MakeResponse
 
-val retrofit = Retrofit
+val retrofit: Retrofit = Retrofit
     .Builder()
     .baseUrl("https://api.vroomhive.co.za/api/v1/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-val makeAPIService = retrofit.create(APIService::class.java)
+val makeAPIService: APIService = retrofit.create(APIService::class.java)
 
 interface APIService {
     @GET("makes/")

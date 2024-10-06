@@ -15,25 +15,41 @@ class MakeViewModel: ViewModel() {
     }
 
     private  val _makeState = mutableStateOf(MakeState())
-    public val makeState: State<MakeState> = _makeState
+    val makeState: State<MakeState> = _makeState
 
     private fun fetchMakes(){
         viewModelScope.launch {
             try {
+                println("Before requesting from API: isLoading: true")
+
                 val  response = makeAPIService.getMakes()
                 _makeState.value = _makeState.value.copy(
                     isLoading = false,
                     error = null,
-                    list = response.result
+                    list = response.results,
                 )
 
+                println(response)
+
+
+
             }catch (e: Exception){
+
                 _makeState.value = _makeState.value.copy(
                     isLoading = false,
-                    error = "Error feching makes ${e.message}",
+                    error = "Error fetching makes ${e.message}",
                     list = emptyList()
                 )
+                println("An error has occurred: ${e.message}")
+            }finally {
+                //println("Categories ->")
+                //println(makeState.value.list)
+                //println("IsLoading ->")
+                println("After requesting from API")
+                println("IsLoading: -> ${makeState.value.isLoading}, size: ${makeState.value.list.size}")
             }
+
+
         }
     }
 
@@ -43,3 +59,5 @@ class MakeViewModel: ViewModel() {
         var error: String? = null
     )
 }
+
+

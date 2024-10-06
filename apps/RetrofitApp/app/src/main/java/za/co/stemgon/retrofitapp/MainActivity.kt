@@ -12,9 +12,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
+import za.co.stemgon.retrofitapp.models.Make
+import za.co.stemgon.retrofitapp.models.MakeItem
+import za.co.stemgon.retrofitapp.models.MakeItemLayout
 import za.co.stemgon.retrofitapp.ui.theme.RetrofitAppTheme
+import za.co.stemgon.retrofitapp.viewmodel.MakeViewModel
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -24,6 +30,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    var makeViewModel = ViewModelProvider(this).get(MakeViewModel::class.java)
+
                     APIAppUI()
                 }
             }
@@ -33,12 +41,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun APIAppUI() {
+
+
     Column (
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        //Text(text = "Welcome To APIApp")
         MakeItemLayout()
+        //Text(text = "Welcome")
+        //MakeItem(Make("id", "Make", 3, "image", "image"))
+
     }
 }
 
