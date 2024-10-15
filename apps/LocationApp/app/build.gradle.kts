@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "za.co.stemgon.navapp"
+    namespace = "za.co.stemgon.locationapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "za.co.stemgon.navapp"
+        applicationId = "za.co.stemgon.locationapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -50,10 +50,6 @@ android {
 }
 
 dependencies {
-
-    val nav_version = "2.8.2"
-
-    implementation("androidx.navigation:navigation-compose:$nav_version")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
