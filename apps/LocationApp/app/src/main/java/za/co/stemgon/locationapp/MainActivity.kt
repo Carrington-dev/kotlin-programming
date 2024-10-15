@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityCompat
 import za.co.stemgon.locationapp.ui.theme.LocationAppTheme
 import za.co.stemgon.locationapp.utils.LocationUtils
 
@@ -55,9 +56,21 @@ fun LocationUI(){
             if (permissions[android.Manifest.permission.ACCESS_COARSE_LOCATION] == true
                 && permissions[android.Manifest.permission.ACCESS_FINE_LOCATION] == true){
 
-            }
-            else{
+            } else{
+                val rationalRequired = ActivityCompat.shouldShowRequestPermissionRationale(
+                    context as MainActivity,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                ) || ActivityCompat.shouldShowRequestPermissionRationale(
+                    context,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                )
 
+                if(rationalRequired){
+                    Toast.makeText(context, "Location is required for this feature to work!", Toast.LENGTH_LONG).show()
+                }else{
+                    Toast.makeText(context, "Location permission is required for this feature to work please enable it in the settings!", Toast.LENGTH_LONG).show()
+
+                }
             }
         })
 
@@ -73,8 +86,13 @@ fun LocationUI(){
                 if (locationUtils.hasPermission(context)){
                     Toast.makeText(context, "You have permission", Toast.LENGTH_LONG).show()
                 }else{
-                    Toast.makeText(context, "You need permission", Toast.LENGTH_LONG).show()
-
+                    //Toast.makeText(context, "You need permission", Toast.LENGTH_LONG).show()
+                    requestActivityLauncher.launch(
+                        arrayOf(
+                            android.Manifest.permission.ACCESS_FINE_LOCATION,
+                            android.Manifest.permission.ACCESS_FINE_LOCATION,
+                        )
+                    )
                 }
             }
         ) {
