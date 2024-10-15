@@ -23,13 +23,16 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.viewmodel.compose.viewModel
 import za.co.stemgon.locationapp.ui.theme.LocationAppTheme
 import za.co.stemgon.locationapp.utils.LocationUtils
+import za.co.stemgon.locationapp.viewmodels.LocationViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val locationViewModel:LocationViewModel = viewModel()
             LocationAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -37,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //
-                    LocationUI()
+                    LocationUI(locationViewModel)
                 }
             }
         }
@@ -45,7 +48,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun LocationUI(){
+fun LocationUI(
+    locationViewModel: LocationViewModel
+){
     val context = LocalContext.current
     val locationUtils: LocationUtils = LocationUtils(context)
 
@@ -105,6 +110,6 @@ fun LocationUI(){
 @Composable
 fun GreetingPreview() {
     LocationAppTheme {
-        LocationUI()
+        //LocationUI()
     }
 }
