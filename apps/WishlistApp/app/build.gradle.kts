@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -50,6 +51,18 @@ android {
 }
 
 dependencies {
+
+    // Room Database components
+    implementation("androidx.room:room-runtime:2.5.2")
+
+    // Room Kotlin Extensions and Coroutines support
+    implementation("androidx.room:room-ktx:2.5.2")
+
+    // Room Compiler (Annotation Processor)
+    kapt("androidx.room:room-compiler:2.6.1")
+
+    // Optional - If you use Paging with Room
+    implementation("androidx.room:room-paging:2.5.2")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
