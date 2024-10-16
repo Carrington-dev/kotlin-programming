@@ -72,8 +72,8 @@ kotlin-android-jetcompose/
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/yourusername/kotlin-android-jetcompose.git  
-   cd kotlin-android-jetcompose  
+   git clone https://github.com/Carrington-dev/kotlin-programming.git  
+   cd kotlin-programming 
    ```
 
 2. **Open Kotlin basics in any code editor**  
