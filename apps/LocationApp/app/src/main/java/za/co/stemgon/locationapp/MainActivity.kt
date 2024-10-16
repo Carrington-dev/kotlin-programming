@@ -54,6 +54,7 @@ fun LocationUI(
     val context = LocalContext.current
     val locationUtils: LocationUtils = LocationUtils(context)
     val locationData = locationViewModel.locationData.value
+    val address = locationData?.let { locationUtils.reverseGeocodeLocation(it) }
 
     val requestActivityLauncher =  rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions(),
@@ -82,7 +83,7 @@ fun LocationUI(
         })
 
     Column (
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
 
@@ -91,6 +92,7 @@ fun LocationUI(
         if(locationData == null){
             Text(text = "Location Not Available")
         }else{
+            Text(text = "Location: $address")
             Text(text = "Longitude ${locationData.longitude}, Latitude: ${locationData.latitude}")
         }
 
