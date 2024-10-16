@@ -46,10 +46,15 @@ kotlin-android-jetcompose/
 │   ├── Functions.kt             # Functions and Scopes
 │   ├── ClassesAndObjects.kt     # OOP with Kotlin
 │
-├── android-app/                 # Android Jetpack Compose application
-│   ├── app/                     # Main Android project directory
-│   ├── src/                     # Source code and UI components
+├── apps/                 # Android Jetpack Compose application
+│   ├── Inheritence/                     # Inheritence Application Tutorials
+│   ├── LocationApp/                     # LocationApp Application Tutorials
+│   ├── MVVMApp/                     # Source code and UI components
+│   ├── RetrofitApp/                     # Inheritence Application Tutorials
+│   ├── TogoApp/                     # LocationApp Application Tutorials
+│   ├── NavApp/                     # Source code and UI components
 │   └── build.gradle             # Build configuration files
+|   
 │
 └── README.md                    # This README file
 ```
