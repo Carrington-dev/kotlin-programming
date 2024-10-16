@@ -1,10 +1,45 @@
 package za.co.stemgon.locationapp.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Looper
 import androidx.core.content.ContextCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
+import za.co.stemgon.locationapp.models.LocationData
+import za.co.stemgon.locationapp.viewmodels.LocationViewModel
 
-class LocationUtils(val context: Context) {
+class LocationUtils(private val context: Context) {
+    private val _fusedLocationClient: FusedLocationProviderClient =
+        LocationServices.getFusedLocationProviderClient(context)
+
+    @SuppressLint("MissingPermission")
+
+    fun requestLocationUpdates(viewModel: LocationViewModel){
+        var locationCallback = object : LocationCallback(){
+            override fun onLocationResult(locationResult: LocationResult) {
+                super.onLocationResult(locationResult)
+                locationResult.lastLocation?.let {
+                    location ->
+                    val locationData = LocationData(location.longitude, location.latitude)
+                    viewModel.updateLocation(locationData)
+                }
+            }
+        }
+
+        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,
+            1000).build()
+
+        _fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
+
+
+    }
+
     fun hasPermission(context: Context): Boolean{
         return (ContextCompat.checkSelfPermission(context,
             android.Manifest.permission.ACCESS_COARSE_LOCATION) ==

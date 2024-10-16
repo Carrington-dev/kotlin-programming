@@ -53,6 +53,7 @@ fun LocationUI(
 ){
     val context = LocalContext.current
     val locationUtils: LocationUtils = LocationUtils(context)
+    val locationData = locationViewModel.locationData.value
 
     val requestActivityLauncher =  rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions(),
@@ -60,6 +61,7 @@ fun LocationUI(
             permissions ->
             if (permissions[android.Manifest.permission.ACCESS_COARSE_LOCATION] == true
                 && permissions[android.Manifest.permission.ACCESS_FINE_LOCATION] == true){
+                locationUtils.requestLocationUpdates(locationViewModel)
 
             } else{
                 val rationalRequired = ActivityCompat.shouldShowRequestPermissionRationale(
@@ -85,11 +87,19 @@ fun LocationUI(
         verticalArrangement = Arrangement.Center
 
     ){
+
+        if(locationData == null){
+            Text(text = "Location Not Available")
+        }else{
+            Text(text = "Longitude ${locationData.longitude}, Latitude: ${locationData.latitude}")
+        }
+
         Button(
             modifier = Modifier.padding(8.dp),
             onClick = {
                 if (locationUtils.hasPermission(context)){
-                    Toast.makeText(context, "You have permission", Toast.LENGTH_LONG).show()
+                    locationUtils.requestLocationUpdates(locationViewModel)
+                    //Toast.makeText(context, "You have permission", Toast.LENGTH_LONG).show()
                 }else{
                     //Toast.makeText(context, "You need permission", Toast.LENGTH_LONG).show()
                     requestActivityLauncher.launch(
