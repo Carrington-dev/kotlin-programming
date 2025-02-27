@@ -1,7 +1,3 @@
-Here’s a professional and detailed README for your **Kotlin Programming Basics** and **Introduction to Android Development with Jetpack Compose** project.
-
----
-
 # Kotlin Programming Basics and Introduction to Android Development with Jetpack Compose  
 
 ## 📋 Table of Contents  
